@@ -1,5 +1,5 @@
 //Ejemplo 1 
-/*
+
 const promesaSimple = new Promise((resolve, reject) => {
     setTimeout( () => {
         resolve("Promesa resuelta exitosamente");
@@ -398,7 +398,43 @@ function procesarPedido(idPedido, tiempo){
     });
 }
 */
+//
+const promesaSimple = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("Proceso completo");
+    }, 2000);
+});
 
+promesaSimple
+    .then((mensaje)=> {
+        console.log(mensaje);
+    })
+    .catch((error) => {
+        console.error(error);
+});
 
+const paso1 = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("Paso 1 completo");
+            resolve("Datos del paso 1");
+        }, 1000);
+    });
+};
+
+const paso2 = (datosPrevios) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("Paso 2 completado con: ", datosPrevios);
+            resolve("Datos del paso 2");
+        }, 1000);
+    });
+};
+
+const promesaRsuelta = new Promise((resolve) => {
+    resolve("Exito");
+});
+
+promesaRsuelta.then(result => console.log(result));
 
 

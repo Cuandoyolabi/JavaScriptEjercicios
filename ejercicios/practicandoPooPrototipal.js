@@ -281,4 +281,107 @@ console.log(persona.nombre);
 persona.nombre = "Carlos";
 console.log(persona.nombre);
 */
+/*
+//11
+function Vehiculo(marca){
+    this.marca = marca;
+}
 
+Vehiculo.prototype.arrancar = function(){
+    console.log(`${this.marca} esta arrancando`);
+}
+
+function Coche(marca, modelo){
+    Vehiculo.call(this, marca);
+    this.modelo = modelo;
+}
+
+Coche.prototype = Object.create(Vehiculo.prototype);
+Coche.prototype.constructor = Coche;
+
+Coche.prototype.mostrarModelo = function(){
+    console.log(`El coche es un ${this.marca} ${this.modelo}`);
+};
+
+const miCoche = new Coche("Ford", "Munstang");
+miCoche.arrancar();
+miCoche.mostrarModelo();
+
+//12
+function Animal(tipo){
+    this.tipo = tipo;
+}
+
+Animal.prototype.hablar = function(){
+    console.log(`${this.tipo} hace un sonido`);
+}
+
+function Gato(nombre){
+    Animal.call(this, "Gato");
+    this.nombre = nombre;
+}
+
+Gato.prototype = Object.create(Animal.prototype);
+Gato.prototype.constructor = Gato;
+
+Gato.prototype.hablar = function(){
+    console.log(`${this.nombre} dice Miau`);
+};
+
+const miGato = new Gato("Solovino");
+miGato.hablar();
+*/
+//13
+/*
+function Animal(nombre){
+    this.nombre = nombre;
+}
+
+Animal.prototype.hablar = function(){
+    console.log(`${this.nombre} hace un sonido`);
+};
+
+function Perro(nombre, raza){
+    Animal.call(this, nombre);
+    this.raza = raza;
+}
+
+Perro.prototype = Objetc.create(Animal.prototype);
+Perro.prototype.constructor = Perro;
+
+Perro.prototype.hablar = function(){
+    console.log(`${this.nombre} ladra`);
+};
+
+const miPerro = new Perro("Solovino", "Desconocido");
+miPerro.hablar();
+
+//14
+function Vehiculo(ruedas){
+    this.ruedas = ruedas;
+}
+
+Vehiculo.prototype.mover = function(){
+    console.log(`Este vehiculo se mueve sobre ${this.ruedas} ruedas`);
+};
+
+function Motor(tipo){
+    this.tipo = tipo;
+}
+
+Motor.prototype.arrancar = function(){
+    console.log(`El motor ${this.tipo} esta en marcha`);
+}
+
+function Carro(ruedas, tipo){
+    Vehiculo.call(this, ruedas);
+    Motor.call(this, tipo);
+}
+
+Object.assign(Carro.prototype, Vehiculo.prototype);
+Object.assign(Carro.prototype, Motor.prototype);
+
+const miCarro = new Carro(4, "Gasolina");
+miCarro.mover();
+miCarro.arrancar();
+*/
