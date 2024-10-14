@@ -20,7 +20,7 @@ console.log(ends);
 
 //Metodos de extraccion.
 
-let stringNum3 = "Este va ser un nuevo string, vamos a probar metodos";
+let stringNum3 = "Este va ser un nuevo string, vamos a probar metodos ";
 let stringNum4 = "Esta es una prueba de metodos";
 let stringNum5 = "Esta es la ultima prueba de metodos de extraccion ";
 
@@ -59,3 +59,12 @@ let probandoTrim = "         HOLAAAAA   ESTO ES            ";
 let trimm = probandoTrim.trim();
 console.log(trimm);
 console.log(probandoTrim);
+
+let concatenandoAndo = stringNum3.concat(stringNum4);
+console.log(concatenandoAndo); 
+
+let probandoSplit = stringNum4.split(" ");
+console.log(probandoSplit);
+
+let probandoSlice = stringNum5.replace("metodos", "tecnicas");
+console.log(probandoSlice);
