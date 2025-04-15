@@ -37,10 +37,10 @@ function printText(text){
 }
 
 transformText("Hello", printText);
-*/
+
 
 //Ejemplo 4 
-/*
+
 const numbers = [1, 2, 3, 4];
 
 function double(num){
@@ -65,7 +65,7 @@ function showValidation(result){
 }
 
 validate(10, showValidation);
-*/
+
 
 //Problema numero 1
 /*
@@ -105,7 +105,7 @@ Pistas:
 Usa setTimeout para simular el tiempo que tarda cada paso.
 Simula el error usando un número aleatorio y detén el flujo si ocurre un error.
 */
-
+/*
 //Simulacion de error
 function simulandoError(callback){
     let randomNumber = Math.floor(Math.random() * 10) + 1;
@@ -206,6 +206,37 @@ function empezarTrabajo(){
 };
 
 empezarTrabajo();
+*/
+/*
+function operar(a, b, callback){
 
+    const resultado = callback(a, b);
+    console.log(resultado);
+    
+}
 
+function suma(x, y){
+    return x + y;
+}
+
+function resta(x, y ){
+    return x - y;
+}
+
+operar(10, 5, suma);
+operar(10, 5, resta);
+*/
+
+function mostrarMensajeConRetraso(mensaje, callback){
+
+    funcionConMensaje();
+}
+
+function funcionConMensaje(){
+    let msg = "Uy que rico";
+}
+
+mostrarMensajeConRetraso("Hola mundo", function(msg){
+    console.log("Mensaje recibido", msg);
+});
 

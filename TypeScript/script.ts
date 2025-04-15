@@ -151,5 +151,162 @@ function convertirValor(valor: number | string): string | number {
     return valor;
 }
 
+//Creando Enum.
+
+enum Color {
+    Red,
+    Green,
+    Blue
+}
+
+let myColor: Color = Color.Red;
+console.log(myColor);
+
+enum Status {
+    Active = 1,
+    Inactive,
+    Suspended
+}
+
+let userStatus: Status = Status.Active;
+console.log(userStatus);
+
+enum Direction {
+    Up = "Up",
+    Down = "Down",
+    Left = "Left",
+    Right = "Right"
+}
+
+let move: Direction = Direction.Left;
+console.log(move);
+
+enum Mixed{
+    No = 0,
+    Yes = "Yes"
+}
+
+let responseYes: Mixed = Mixed.Yes;
+let responseNo: Mixed = Mixed.No;
+
+enum Mathoperations{
+    Add = "Add",
+    Subtract = "Subtract",
+    Multiply = "Multiply",
+    Divide = "Divide"
+}
+
+function calculate(op: Mathoperations, a: number, b: number): number{
+    switch(op){
+        case Mathoperations.Add:
+            return a + b;
+        case Mathoperations.Subtract:
+            return a - b;
+        case Mathoperations.Multiply:
+            return a * b;
+        case Mathoperations.Divide:
+            return a / b;
+        }
+}
+
+enum Permisions {
+    Read = 1 << 0,
+    Write = 1 << 1,
+    Execute = 1 << 2
+}
+
+let myPermision: Permisions = Permisions.Read | Permisions.Write;
+console.log(myPermision);
+
+enum Vehicle{
+    Car = "Car",
+    Truck = "Truck",
+    Motorcycle = "MotorCycle",
+    Bicycle = "Bycicle"
+}
+
+enum Shape {
+    Circle = " Circle",
+    Square = "Square",
+    Triangle = "Triangle"
+}
+
+enum orderStatus{
+    Pending = "PENDING",
+    Shipped = "SHIPPED",
+    Delivered = "DELIVERED"
+}
+
+// Ejemplo while en TypeScript.
+const randomNumbers : number[] = [];
+let sum = 0;
+
+for(let i = 0; i < 5; i++){
+    const random = Math.floor(Math.random() * 100);
+    randomNumbers.push(random);
+    sum += random;
+    console.log(`Numero generado: ${random}`);
+}
+
+console.log(`Arreglo generado: ${randomNumbers}`);
+console.log(`Suma total: ${sum}`);
 
 
+interface Product {
+    id: number;
+    name: string;
+    price: number;
+}
+
+const products: Product[] = [
+    {id: 1, name: 'Laptop', price: 1000},
+    {id: 2, name: 'Mouse', price: 25},
+    {id: 3, name: 'Kayboard', price: 50},
+];
+
+for(let i = 0; i < products.length; i++){
+    const product = products[i];
+    console.log(`Producto: ${product.name}, Precio: $${product.price}`);
+}
+
+//FOREACH() 
+
+interface FormField {
+    name: string;
+    value: string;
+    required: boolean;
+}
+
+const formFields: FormField[] = [
+    {name: 'username', value: 'user123', required: true},
+    {name: 'email', value: '', required: true},
+    {name: 'age', value: '22', required: false}
+];
+
+let isValid = true;
+const errors: string[] = [];
+
+formFields.forEach(field => {
+    if(field.required && field.value.trim() === ' '){
+        isValid = false;
+        errors.push(`El campo "${field.name}" es obligatorio.`);
+    }
+});
+
+if(isValid){
+    console.log(`Formulario valudo`)
+} else {
+    console.log(`Errores:`, errors);
+}
+
+//10 ejemplos de map()
+
+
+
+
+
+//10 ejemplos de filter()
+
+
+
+//10 ejemplos de reduce()

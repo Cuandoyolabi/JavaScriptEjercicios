@@ -1,5 +1,5 @@
 //Ejemplo 1 
-
+/*
 const promesaSimple = new Promise((resolve, reject) => {
     setTimeout( () => {
         resolve("Promesa resuelta exitosamente");
@@ -9,6 +9,7 @@ const promesaSimple = new Promise((resolve, reject) => {
 promesaSimple.then(result => {
     console.log(result);
 })
+*/
 /*
 //En JavaScript, resolve y reject son funciones que se utilizan 
 //dentro de las promesas para manejar el resultado de una operación asincrónica.
@@ -399,6 +400,7 @@ function procesarPedido(idPedido, tiempo){
 }
 */
 //
+/*
 const promesaSimple = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve("Proceso completo");
@@ -437,4 +439,190 @@ const promesaRsuelta = new Promise((resolve) => {
 
 promesaRsuelta.then(result => console.log(result));
 
+*/
+/*
+function autenticarUsuario(usuario, contraseña){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if(usuario === "admin" && contraseña === "1234"){
+                resolve({id: 1, nombre: "Admin"});
+            } else {
+                reject("Usuario o contraseña incorretos");
+            }
+        }, 1500);
+    });
+}
+
+function cargarPerfil(idUsuario){
+    return new Promise((resolve) => {
+        console.log("Cargando perfil del usuario");
+        setTimeout(() => {
+            resolve({edad: 30, correo: "adaminzunza3@gmail.com"});
+        }, 1000);
+    });
+}
+
+autenticarUsuario("admin", "1234")
+    .then((usuario) => {
+        console.log("Usuario autenticado", usuario);
+    })
+    .then((perfil) => {
+        console.log("Perfil del usuario: ", perfil);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+*/
+/*
+function verificarStock(producto){
+    return new Promise((resolve, reject) => {
+        console.log("Verificando stock");
+        setTimeout(() => {
+            const enStock = ["camisa", "zapatos"];
+            enStock.includes(producto)
+            ? resolve(producto)
+            : reject("Producto agotado");
+        }, 1000);
+    });
+}
+
+function procesarPago(producto){
+    return new Promise((resolve) => {
+        console.log("procesando pago por producto: ", producto);
+        setTimeout(() => {
+            resolve("Pago exitoso");
+        }, 1000);
+        });
+}
+
+function generarFactura(producto){
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Fatura generada para {producto}");
+        }, 1000);
+    });
+}
+
+verificarStock("camisa")
+    .then(procesarPago)
+    .then(() => generarFactura("camisa"))
+    .then(console.log)
+    .catch(console.error);
+*/
+/*
+function buscarVuelo(destino){
+    return new Promise((resolve, reject) => {
+        console.log("Buscando Vuelos a :", destino);
+        setTimeout(() => {
+            if(destino === "Tokio"){
+                resolve({vuelo: "Tk123", precio: 850});
+            } else {
+                reject("No hay vuelos disponibles");
+            }
+        }, 2000);
+    });
+}
+
+function pagarVuelo(vuelo){
+    return new Promise((resolve) => {
+        console.log("Pagando vuelo:", vuelo.vuelo);
+        setTimeout(() => {
+            resolve("Pago realizado con exito");
+        }, 2000);
+    });
+}
+
+function confirmarReserva(){
+    return new Promise((resolve) => {
+        console.log("Enviando onfirmacion de reserva....");
+        setTimeout(() => {
+            resolve("Correo de confirmacion enviado");
+        }, 1000);
+    });
+}
+
+buscarVuelo("Tokio")
+    .then(pagarVuelo)
+    .then(confirmarReserva)
+    .then(console.log)
+    .catch(console.error)
+    */
+/*
+function sumarConPromesa(a, b){
+    return new Promise((resolve, reject) => {
+        if(typeof(a) === "number" && typeof(b) === "number"){
+            resolve(a + b);
+        } else {
+            reject("Hay un dato que no es un numero y no se puede ejecutar");
+        }
+    });
+}
+
+sumarConPromesa(4, 5)
+    .then(resultado => console.log("Resultado: ", resultado))
+    .catch(error => console.error("Error", error));
+ 
+*/
+
+/*
+function pasarOk(ok){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if(ok == "ok"){
+                resolve("Se pasa con exito");
+            } else {
+                reject("No pasa");
+            }
+        }, 1000);
+    });
+}
+
+pasarOk("ok")
+    .then((respuesta) => console.log(respuesta))
+    .catch((respuesta) => console.log(respuesta))
+*/
+
+
+/*  Generando un error por un retraso de informacion
+let estudiantes = [{
+    name: "Adam",
+    edad: 22
+    },
+    {
+    nombre: "Ricardo",
+    edad: 38
+    }
+];
+
+function datos(){
+    setTimeout(() => {
+        return estudiantes;
+    }, 1000);
+}
+
+console.log(datos());
+*/
+
+let estudiantes = [{
+    name: "Adam",
+    edad: 22
+    },
+    {
+    nombre: "Ricardo",
+    edad: 38
+    }
+];
+
+function retornandoDatos(){
+
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(estudiantes);
+        }, 1000);
+    });
+}
+
+retornandoDatos()
+    .then((respuesta) => console.log(respuesta))
+//  .catch((respuesta) => console.log(respuesta));
 
